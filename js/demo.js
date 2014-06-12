@@ -3,6 +3,7 @@
 
   angular.module('demoApp', ['ui.tree'])
   .controller('MainCtrl', function($scope) {
+    $scope.angular=angular;
     $scope.list = [{
       "id": 1,
       "title": "1. dragon-breath",
