@@ -87,6 +87,47 @@
         </div>
 
       </div>
+      
+      
+      <div class="row">
+      <div class="col-md-12">
+          <div class="row" ng-controller="MainCtrl">
+            <div class="col-lg-6">
+              <h3>Draggable Tree</h3>
+
+              <!-- Nested list template -->
+              <script type="text/ng-template" id="items_renderer2.html">
+                <div ui-tree-handle>
+                  <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                  {{key}}
+                  <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+                  <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+                <ol ng-if="angular.isObject(item)||angular.isArray(item)" ui-tree-nodes="options" ng-model="item" ng-class="{hidden: collapsed}">
+                  <li ng-repeat="item in item" ui-tree-node ng-include="'items_renderer.html'">
+                  </li>
+                </ol>
+                <div ng-if="angular.isString(item) || angular.isNumber(iten)" >{{item}}</div>
+              </script>
+              
+              <div ui-tree="options">
+                <ol ui-tree-nodes ng-model="list" >
+                  <li ng-repeat="(key,item) in list" ui-tree-node ng-include="'items_renderer2.html'"></li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <h3>Full tree</h3>
+              <pre class="code">{{ list | json }}</pre>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      
+      
     </div>
 
   <!-- JavaScript -->
