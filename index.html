@@ -104,7 +104,7 @@
                   <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
                 </div>
                 <ol ng-if="angular.isObject(item)||angular.isArray(item)" ui-tree-nodes="options" ng-model="item" ng-class="{hidden: collapsed}">
-                  <li ng-repeat="(key,item) in item" ui-tree-node ng-include="'items_renderer.html'">
+                  <li ng-repeat="(key,item) in item" ui-tree-node ng-include="'items_renderer2.html'">
                   </li>
                 </ol>
                 <div ng-if="angular.isString(item) || angular.isNumber(iten)" >{{item}}</div>
